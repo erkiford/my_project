@@ -30,8 +30,10 @@ class PricingController extends AbstractController
         $repository = $this->entityManager->getRepository(PricingPlan::class);
         $pricingPlans = $repository->findAll();
 
-        return $this->render('pricing/index', [
+        return $this->render('pricing/index.html.twig', [
             'pricing_plans' => $pricingPlans,
+            'features' => [],
+            
         ]);
 
 
