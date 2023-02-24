@@ -25,7 +25,7 @@ class PricingPlan
     #[ORM\OneToMany(mappedBy: 'pricingPlan', targetEntity: PricingPlanBenefit::class)]
     private Collection $benefits;
 
-    #[ORM\ManyToMany(targetEntity: pricingPlanFeature::class)]
+    #[ORM\ManyToMany(targetEntity: PricingPlanFeature::class)]
     private Collection $features;
 
     public function __construct()
@@ -94,14 +94,14 @@ class PricingPlan
     }
 
     /**
-     * @return Collection<int, pricingPlanFeature>
+     * @return Collection<int, PricingPlanFeature>
      */
     public function getFeatures(): Collection
     {
         return $this->features;
     }
 
-    public function addFeature(pricingPlanFeature $feature): self
+    public function addFeature(PricingPlanFeature $feature): self
     {
         if (!$this->features->contains($feature)) {
             $this->features->add($feature);
@@ -110,12 +110,12 @@ class PricingPlan
         return $this;
     }
 
-    public function hasFeature(pricingPlanFeature $feature): bool
+    public function hasFeature(PricingPlanFeature $feature): bool
     {
         return $this->features->contains($feature);
     }
 
-    public function removeFeature(pricingPlanFeature $feature): self
+    public function removeFeature(PricingPlanFeature $feature): self
     {
         $this->features->removeElement($feature);
 

@@ -1,0 +1,6 @@
+vendor/
+!vendor/.gitkeep
+var
+!var/.gitkeep
+.idea
+.DS_Store
