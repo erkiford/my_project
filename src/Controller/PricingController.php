@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\PricingPlan;
+use App\Entity\PricingPlanFeature;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,9 +24,12 @@ class PricingController extends AbstractController
         $repository = $this->entityManager->getRepository(PricingPlan::class);
         $pricingPlans = $repository->findAll();
 
+        $repository = $this->entityManager->getRepository(PricingPlanFeature::class);
+        $PricingPlanFeature = $repository->findAll();
+
         return $this->render('pricing/index.html.twig', [
             'pricing_plans' => $pricingPlans,
-            'features' => [],
+            'features' => $PricingPlanFeature,
         ]);
     }
 }
