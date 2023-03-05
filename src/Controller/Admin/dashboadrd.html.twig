@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <ul class="nav flex-column">
+                    {% for menuItem in menuItems %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path(menuItem.route) }}">{{ menuItem.label }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-10">
+                {% block easy_admin_content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
