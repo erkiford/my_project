@@ -3,6 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Entity\PricingPlan;
+use App\Entity\PricingPlanBenefit;
+use App\Entity\PricingPlanFeature;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -34,13 +36,21 @@ class DashboardController extends AbstractDashboardController
         // return $this->render('some/path/my-dashboard.html.twig');
     }
 
+
+
     public function configureMenuItems(): iterable
     {
         return [
             MenuItem::linkToDashboard('Dashboard', 'fa fa-home'),
 
             MenuItem::section('Pricing'),
-            MenuItem::linkToCrud('PricingPlans', 'fa fa-tags', PricingPlan::class),
+            MenuItem::linkToCrud('Pricing Plans', 'fa fa-tags', PricingPlan::class),
+
+            MenuItem::section('Benefits'),
+            MenuItem::linkToCrud('Pricing Plan Benefit', 'fa fa-tags', PricingPlanBenefit::class),
+
+            MenuItem::section('Features'),
+            MenuItem::linkToCrud('Pricing Plans Feature', 'fa fa-tags', PricingPlanFeature::class),
         ];
     }
 }
